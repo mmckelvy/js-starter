@@ -129,7 +129,6 @@ module.exports = {
     "operator-linebreak": ["error", "after"],
     "padded-blocks": ["error", "never"],
     "quote-props": ["error", "as-needed"],
-    "quotes": ["error", "double"],
     "semi-spacing": "error",
     "sort-keys": "error",
     "space-before-blocks": "error",

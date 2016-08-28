@@ -29,6 +29,7 @@
   "dependencies": {
     "babel-polyfill": "^6.13.0",
     "basic-static": "^2.0.1",
+    "http-hash": "^2.0.0",
     "parse-body": "^1.0.3",
     "react": "^15.3.1",
     "react-dom": "^15.3.1"

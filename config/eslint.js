@@ -127,7 +127,6 @@ module.exports = {
     "one-var-declaration-per-line": "error",
     "operator-assignment": "error",
     "operator-linebreak": ["error", "after"],
-    "padded-blocks": ["error", "never"],
     "quote-props": ["error", "as-needed"],
     "semi-spacing": "error",
     "sort-keys": "error",

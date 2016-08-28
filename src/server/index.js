@@ -1,13 +1,12 @@
-import path from 'path';
 import http from 'http';
 import url from 'url';
 
 import routes from './routes';
-import headers from './headers';
+import headers from './utils/headers';
 
 const port = process.env.PORT || 5000;
 
-const server = http.createServer(function(req, res) {
+const server = http.createServer((req, res) => {
   const pathname = url.parse(req.url).pathname;
   const match = routes.get(pathname);
 
@@ -21,3 +20,4 @@ const server = http.createServer(function(req, res) {
 });
 
 server.listen(port, () => console.log(`Server listening on port ${port}`));
+

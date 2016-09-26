@@ -129,7 +129,6 @@ module.exports = {
     "operator-linebreak": ["error", "after"],
     "quote-props": ["error", "as-needed"],
     "semi-spacing": "error",
-    "sort-keys": "error",
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", "never"],
     "space-in-parens": ["error", "never"],
@@ -139,8 +138,6 @@ module.exports = {
     "spaced-comment": ["error", "always"],
 
     // ECMAScript 6
-    "arrow-body-style": ["error", "as-needed"],
-    "arrow-parens": ["error", "always"],
     "arrow-spacing": "error",
     "generator-star-spacing": ["error", "before"],
     "no-confusing-arrow": "error",

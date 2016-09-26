@@ -1,6 +1,6 @@
-import http from 'http';
+import http from 'http'
 
-import headers from './headers';
+import headers from './headers'
 
 /**
 * @function sendError
@@ -14,8 +14,8 @@ import headers from './headers';
 * @return {undefined} Sends a response back to the client.
 */
 export default function sendError(res, statusCode = 500) {
-  const error = {message: http.STATUS_CODES[statusCode]};
+  const error = {message: http.STATUS_CODES[statusCode]}
 
-  res.writeHead(statusCode, headers.json);
-  res.end(JSON.stringify(error));
+  res.writeHead(statusCode, headers.json)
+  res.end(JSON.stringify(error))
 }

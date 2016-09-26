@@ -5,4 +5,4 @@ export default {
   json: {'Content-Type': 'application/json'},
   text: {'Content-Type': 'text/plain'},
   urlencoded: {'Content-Type': 'application/x-www-form-urlencoded'}
-};
+}

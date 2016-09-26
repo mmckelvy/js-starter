@@ -10,6 +10,7 @@
     "build:prod": "NODE_ENV=production && npm run build",
     "build:server": "webpack --config config/webpack/server.js",
     "build:client": "webpack --config config/webpack/client.js",
+    "dev": "npm run watch:client & npm run watch:server & nodemon build/server.js",
     "watch:server": "webpack --config config/webpack/server.js --watch",
     "watch:client": "webpack --config config/webpack/client.js --watch"
   },
@@ -26,6 +27,7 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^6.1.2",
     "file-loader": "^0.9.0",
+    "nodemon": "^1.10.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2"

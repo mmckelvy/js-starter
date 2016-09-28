@@ -14,14 +14,12 @@ export default function addOpp(req, res) {
     } else {
       // Create a new opp from the POST body
       newOpp.id = uuid.v4()
-
       // Get the existing opps
       const existingOpps = opps.opps.slice()
       // Add the new opp
       const updatedOpps = existingOpps.concat([newOpp])
       // Convert to JSON
       const updated = JSON.stringify({opps: updatedOpps})
-
       // Write to file
       fs.writeFile(path.join(__dirname, '../opps.json'), updated, 'utf8', (writeErr) => {
         if (writeErr) {

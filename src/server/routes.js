@@ -2,6 +2,7 @@ import httpHash from 'http-hash'
 import basicStatic from 'basic-static'
 
 import { renderView } from './utils'
+import { fetchOpps, addOpp, updateOpp, deleteOpp } from './api'
 
 const routes = httpHash()
 
@@ -18,6 +19,19 @@ const serveAssets = basicStatic({
 
 // Any route should render the index page and let the client take it from there.
 routes.set('*', (req, res) => renderView(req, res, 'index.html'))
+
+// Api
+routes.set('/api/opps', (req, res) => {
+  if (req.method === 'GET') {
+    fetchOpps(req, res)
+  } else if (req.method === 'POST') {
+    addOpp(req, res)
+  } else if (req.method === 'PUT') {
+    updateOpp(req, res)
+  } else if (req.method === 'DELETE') {
+    deleteOpp(req, res)
+  }
+})
 
 // Static assets
 routes.set('/build/*', serveBundle)

@@ -4,7 +4,7 @@ import url from 'url'
 import routes from './routes'
 import { headers } from './utils'
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8000
 
 const server = http.createServer((req, res) => {
   const pathname = url.parse(req.url).pathname

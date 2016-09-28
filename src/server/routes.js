@@ -27,6 +27,7 @@ routes.set('/api/opps', (req, res) => {
   } else if (req.method === 'POST') {
     addOpp(req, res)
   } else if (req.method === 'PUT') {
+    console.log(updateOpp)
     updateOpp(req, res)
   } else if (req.method === 'DELETE') {
     deleteOpp(req, res)

@@ -4,9 +4,9 @@ import { Route, IndexRoute } from 'react-router'
 
 import { Root, Opportunities } from './views'
 
-// TODO: Add login
+// TODO: Add login and logout
 export default (
   <Route path="/" component={Root}>
-    <IndexRoute path="opportunities" component={Opportunities} />
+    <IndexRoute component={Opportunities} />
   </Route>
 )

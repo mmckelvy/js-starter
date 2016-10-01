@@ -24,7 +24,7 @@ class Opportunities extends React.Component {
         console.log(err)
       } else {
         this.setState({
-          opps: JSON.parse(res.body)
+          opps: JSON.parse(res.body).opps
         })
       }
     })

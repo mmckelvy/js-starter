@@ -2,6 +2,6 @@ import { dims } from 'client/global-styles';
 
 export default {
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
   width: dims.base * 30,
 }

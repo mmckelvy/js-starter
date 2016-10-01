@@ -123,7 +123,6 @@ module.exports = {
     "no-underscore-dangle": "error",
     "no-unneeded-ternary": "error",
     "no-whitespace-before-property": "error",
-    "object-property-newline": "error",
     "one-var-declaration-per-line": "error",
     "operator-assignment": "error",
     "operator-linebreak": ["error", "after"],

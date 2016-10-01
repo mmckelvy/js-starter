@@ -18,7 +18,9 @@ const serveAssets = basicStatic({
 })
 
 // Any route should render the index page and let the client take it from there.
-routes.set('*', (req, res) => renderView(req, res, 'index.html'))
+routes.set('*', (req, res) => {
+  renderView(req, res, 'index.html')
+})
 
 // Api
 routes.set('/api/opps', (req, res) => {
@@ -36,7 +38,6 @@ routes.set('/api/opps/:id', (req, res, params) => {
     deleteOpp(req, res, params)
   }
 })
-
 
 // Static assets
 routes.set('/build/*', serveBundle)

@@ -23,7 +23,6 @@ export default function updateOpp(req, res) {
       // Write to file
       fs.writeFile(path.join(__dirname, '../opps.json'), updated, 'utf8', (writeErr) => {
         if (writeErr) {
-          console.log(writeErr)
           sendError(res, 500)
         } else {
           res.end('success')

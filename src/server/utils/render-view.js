@@ -5,7 +5,7 @@ import headers from '../utils/headers'
 import sendError from '../utils/send-error'
 
 export default function renderView(req, res, filename) {
-  const stream = fs.createReadStream(path.join(__dirname, filename))
+  const stream = fs.createReadStream(path.join(__dirname, '../views', filename))
 
   stream.on('error', () => sendError(res, 500))
 

@@ -5,6 +5,8 @@ export const color = {
   grey600: '#737373',
   orange100: '#FFE0B2',
   orange900: '#E65100',
+  red500: '#F44336',
+  blue500: '#2196F3',
 }
 
 export const dims = {

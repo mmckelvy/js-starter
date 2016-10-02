@@ -9,10 +9,10 @@ export default function OppRow({ opp }) {
 
   return (
     <div style={styles}>
-      <Cell text={title} />
-      <Cell text={location} />
-      <Cell text={description} isDescription />
-      <Cell text={contact} />
+      <Cell>{title}</Cell>
+      <Cell>{location}</Cell>
+      <Cell isDescription>{description}</Cell>
+      <Cell>{contact}</Cell>
     </div>
   )
 }

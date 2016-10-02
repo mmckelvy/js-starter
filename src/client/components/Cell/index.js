@@ -2,14 +2,14 @@ import React from 'react'
 
 import styles from './styles'
 
-export default function Cell({ text, isDescription }) {
+export default function Cell({ isDescription, children }) {
   return (
-    <div style={styles(isDescription)}>{text}</div>
+    <div style={styles(isDescription)}>{children}</div>
   )
 }
 
 Cell.propTypes = {
   isDescription: React.PropTypes.bool,
-  text: React.PropTypes.string,
+  children: React.PropTypes.node
 }
 

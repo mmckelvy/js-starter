@@ -9,7 +9,7 @@ export default {
     fontSize: fontSize.base,
     fontWeight: 300,
     justifyContent: 'center',
-    paddingBottom: dims.base * 2,
+    paddingBottom: dims.base * 4,
   },
   icon: {
     marginRight: dims.base * 2,

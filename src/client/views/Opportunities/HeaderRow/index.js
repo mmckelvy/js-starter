@@ -7,10 +7,10 @@ import styles from './styles'
 export default function HeaderRow() {
   return (
     <div style={styles}>
-      <Cell text="Title" />
-      <Cell text="Location" />
-      <Cell text="Description" isDescription />
-      <Cell text="Contact" />
+      <Cell>Title</Cell>
+      <Cell>Location</Cell>
+      <Cell isDescription>Description</Cell>
+      <Cell>Contact</Cell>
     </div>
   )
 }

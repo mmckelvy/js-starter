@@ -19,10 +19,10 @@ export const font = {
 }
 
 export const fontSize = {
-  base: '18px', // body text
-  large: '32px', // Section headers
-  medium: '24px', // Subheaders
   small: '14px', // links, buttons
+  base: '18px', // body text
+  medium: '24px', // Subheaders
+  large: '32px', // Section headers
   xl: '48px', // Landing header
 }
 

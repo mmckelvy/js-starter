@@ -1,5 +1,7 @@
 import { dims } from 'client/global-styles'
 
 export default {
-  paddingTop: dims.base * 3
+  container: {
+    paddingTop: dims.base * 3
+  }
 }

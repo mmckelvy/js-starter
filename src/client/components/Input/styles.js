@@ -23,7 +23,7 @@ export default function styles(focused, error, disabled) {
       boxSizing: 'border-box',
       width: '100%',
       outline: 'none',
-      fontFamily: font.secondary,
+      fontFamily: font.primary,
       fontSize: fontSize.small,
       padding: '0 12px',
       border: `2px solid ${borderColor}`,

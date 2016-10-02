@@ -3,7 +3,6 @@ import xhr from 'xhr'
 
 import HeaderRow from './HeaderRow'
 import OppsList from './OppsList'
-import AddOppToggle from './AddOppToggle'
 import NewOppRow from './NewOppRow'
 
 import styles from './styles'
@@ -13,7 +12,7 @@ class Opportunities extends React.Component {
     super()
 
     this.state = {
-      opps: []
+      opps: [],
     }
   }
 
@@ -39,7 +38,6 @@ class Opportunities extends React.Component {
   render() {
     return (
       <div style={styles.container}>
-        <AddOppToggle handleClick={this.handleClick} />
         <HeaderRow />
         <NewOppRow />
         <OppsList opps={this.state.opps} />

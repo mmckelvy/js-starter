@@ -2,6 +2,7 @@ import React from 'react'
 
 import Cell from 'client/components/Cell'
 import Input from 'client/components/Input'
+import Submit from './Submit'
 
 import styles from './styles'
 
@@ -11,27 +12,29 @@ export default function NewOppRow() {
       <Cell>
         <Input
           inputType="text"
-          placeholder="Title"
+          placeholder="Title..."
         />
       </Cell>
       <Cell>
         <Input
           inputType="text"
-          placeholder="Location"
+          placeholder="Location..."
         />
       </Cell>
       <Cell isDescription>
         <Input
           inputType="text"
-          placeholder="Description"
+          placeholder="Description..."
         />
       </Cell>
       <Cell>
         <Input
           inputType="text"
-          placeholder="Contact"
+          placeholder="Contact..."
         />
       </Cell>
+
+      <Submit />
     </div>
   )
 }

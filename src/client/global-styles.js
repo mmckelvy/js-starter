@@ -7,6 +7,7 @@ export const color = {
   orange900: '#E65100',
   red500: '#F44336',
   blue500: '#2196F3',
+  green500: '#4CAF50'
 }
 
 export const dims = {

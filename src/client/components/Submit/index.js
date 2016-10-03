@@ -1,8 +1,9 @@
 import React from 'react'
 
-import ActionButton from 'client/components/ActionButton'
+import ActionButton from '../ActionButton'
 
 import { color, dims } from 'client/global-styles'
+
 import styles from './styles'
 
 export default function Submit() {

@@ -1,14 +1,15 @@
 import React from 'react'
 
-import Cell from 'client/components/Cell'
-import Input from 'client/components/Input'
-import Submit from './Submit'
+import { Cell, Input, Submit } from 'client/components'
 
 import styles from './styles'
 
 export default function NewOppRow() {
   return (
     <div style={styles}>
+      {/* Placeholder cell for layout purposes */}
+      <Cell isAction />
+
       <Cell>
         <Input
           inputType="text"
@@ -34,7 +35,7 @@ export default function NewOppRow() {
         />
       </Cell>
 
-      <Submit />
+      <Cell isAction><Submit /></Cell>
     </div>
   )
 }

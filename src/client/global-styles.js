@@ -12,6 +12,7 @@ export const color = {
 
 export const dims = {
   base: 8,
+  tableSmall: 200,
   tableBase: 250,
   tableLarge: 500,
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Icon from 'client/components/Icon'
+import { Icon } from 'client/components'
 
 import styles from './styles'
 

@@ -13,6 +13,12 @@ class Opportunities extends React.Component {
 
     this.state = {
       opps: [],
+      formData: {
+        title: '',
+        location: '',
+        description: '',
+        contact: ''
+      }
     }
   }
 
@@ -36,10 +42,12 @@ class Opportunities extends React.Component {
   }
 
   render() {
+    const { formData } = this.state
+
     return (
       <div style={styles.container}>
         <HeaderRow />
-        <NewOppRow />
+        <NewOppRow formData={formData} />
         <OppsList opps={this.state.opps} />
       </div>
     )

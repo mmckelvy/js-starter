@@ -4,7 +4,13 @@ import { Cell, Input, Submit } from 'client/components'
 
 import styles from './styles'
 
-export default function NewOppRow({ formData }) {
+/**
+Need to map this to the inputs...
+
+Should probably do a map...
+*/
+
+export default function NewOppRow({ handleChange }) {
   return (
     <div style={styles}>
       {/* Placeholder cell for layout purposes */}
@@ -14,6 +20,7 @@ export default function NewOppRow({ formData }) {
         <Input
           type="text"
           placeholder="Title..."
+          onChange={handleChange.bind(null, 'title')}
         />
       </Cell>
       <Cell>
@@ -41,5 +48,6 @@ export default function NewOppRow({ formData }) {
 }
 
 NewOppRow.propTypes = {
-  formData: React.PropTypes.object
+  formData: React.PropTypes.object,
+  handleChange: React.PropTypes.func,
 }

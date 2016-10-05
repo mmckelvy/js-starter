@@ -7,40 +7,6 @@ import NewOppRow from './NewOppRow'
 
 import styles from './styles'
 
-/*
-Need to know which form we are updating...
-
-Existing opps will have an id...
-
-New form will not...
-
-So, could check for the presence of an id...and if no id...then it's a POST,
-If not, it's an edit / whatever
-
-Whenever someone is typing in the input...how do I handle that?
-
-Do I need more than one input?
-
-Maybe keep an array of inputs:
-
-[
-  {
-    title: blah,
-    location: blah,
-    description: blah,
-    id: blah,
-  }
-]
-
-Then...as the user types...
-
-On edit...would need to grab the seed value from somewhere...
-
-So the state is really opps...and add adds to the opps...
-
-So, each row of inputs needs its respective opps data
-*/
-
 class Opportunities extends React.Component {
   constructor() {
     super()
@@ -52,9 +18,16 @@ class Opportunities extends React.Component {
         title: '',
         location: '',
         description: '',
-        contact: ''
+        contact: '',
       }
     }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(key, event) {
+    const { formData } = this.state
+    this.setState({formData: {...formData, ...{[key]: event.target.value}}})
   }
 
   handleAdd() {
@@ -89,13 +62,13 @@ class Opportunities extends React.Component {
   }
 
   render() {
-    const { formData } = this.state
+    console.log(this.state.formData)
 
     return (
       <div style={styles.container}>
         <HeaderRow />
-        <NewOppRow formData={formData} />
-        <OppsList formData={formData} opps={this.state.opps} />
+        <NewOppRow handleChange={this.handleChange} />
+        <OppsList opps={this.state.opps} />
       </div>
     )
   }

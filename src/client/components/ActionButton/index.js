@@ -2,13 +2,13 @@ import React from 'react'
 
 import styles from './styles'
 
-export default function ActionButton({ color, children, handleClick, style }) {
+export default function ActionButton({ color, children, onClick, style }) {
   const defaultStyles = styles(color)
 
   return (
     <div
       style={{...{color}, ...defaultStyles, ...style}}
-      onClick={handleClick}>
+      onClick={onClick}>
 
       {children}
     </div>
@@ -18,6 +18,6 @@ export default function ActionButton({ color, children, handleClick, style }) {
 ActionButton.propTypes = {
   color: React.PropTypes.string,
   children: React.PropTypes.node,
-  handleClick: React.PropTypes.func,
+  onClick: React.PropTypes.func,
   style: React.PropTypes.object,
 }

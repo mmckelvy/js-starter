@@ -30,8 +30,13 @@ class Opportunities extends React.Component {
     this.setState({formData: {...formData, ...{[key]: event.target.value}}})
   }
 
+  // Add an opportunity to the list.
   handleAdd() {
-
+    // Update the current list
+    // Submit ajax request
+    // Reconcile
+    // What else...need to validate the form...
+    // Buttons only show once all the data is populated...
   }
 
   handleEdit() {
@@ -47,6 +52,7 @@ class Opportunities extends React.Component {
   }
 
   componentDidMount() {
+    // Load the current opportunities
     xhr({
       method: 'GET',
       url: '/api/opps',
@@ -62,13 +68,13 @@ class Opportunities extends React.Component {
   }
 
   render() {
-    console.log(this.state.formData)
+    const { formData, opps } = this.state
 
     return (
       <div style={styles.container}>
         <HeaderRow />
-        <NewOppRow handleChange={this.handleChange} />
-        <OppsList opps={this.state.opps} />
+        <NewOppRow formData={formData} handleChange={this.handleChange} />
+        <OppsList opps={opps} />
       </div>
     )
   }

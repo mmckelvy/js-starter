@@ -125,7 +125,6 @@ module.exports = {
     "no-whitespace-before-property": "error",
     "one-var-declaration-per-line": "error",
     "operator-assignment": "error",
-    "operator-linebreak": ["error", "after"],
     "quote-props": ["error", "as-needed"],
     "semi-spacing": "error",
     "space-before-blocks": "error",

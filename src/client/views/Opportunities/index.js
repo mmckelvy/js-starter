@@ -27,29 +27,7 @@ class Opportunities extends React.Component {
     this.handleAdd = this.handleAdd.bind(this)
   }
 
-  handleChange(key, event) {
-    const { formData } = this.state
-    this.setState({formData: {...formData, ...{[key]: event.target.value}}})
-  }
-
-  // Add an opportunity to the list.
-  handleAdd() {
-    const { opps, formData } = this.state
-    // Add the new item to the opps
-    const updatedOpps = opps.concat([formData])
-    // Update state
-    this.setState({
-      opps: updatedOpps
-    })
-
-    // Update the current list
-    // Submit ajax request
-    // Reconcile
-    // What else...need to validate the form...
-    // Buttons only show once all the data is populated...
-  }
-
-  handleClear() {
+  clearForm() {
     this.setState({
       formData: {
         title: '',
@@ -58,6 +36,47 @@ class Opportunities extends React.Component {
         contact: '',
       }
     })
+  }
+
+  handleChange(key, event) {
+    const { formData } = this.state
+    this.setState({formData: {...formData, ...{[key]: event.target.value}}})
+  }
+
+  // Add an opportunity to the list.
+  handleAdd() {
+    const { opps, formData } = this.state
+    // Optimistic update
+    this.clearForm()
+    this.setState({
+      opps: opps.slice().concat([formData])
+    })
+
+    // Update server
+    xhr({
+      url: '/api/opps',
+      method: 'POST',
+      json: formData,
+    }, (err, res) => {
+      if (err || res.statusCode !== 201) {
+        // Rollback if error
+        return this.setState({opps})
+      }
+
+      // Sync client and server
+      return this.setState({
+        opps: res.body.opps
+      })
+    })
+    // Update the current list
+    // Submit ajax request
+    // Reconcile
+    // What else...need to validate the form...
+    // Buttons only show once all the data is populated...
+  }
+
+  handleClear() {
+    this.clearForm()
   }
 
   handleEdit() {

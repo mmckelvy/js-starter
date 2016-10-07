@@ -4,7 +4,7 @@ import parseBody from 'parse-body'
 import uuid from 'node-uuid'
 
 import opps from '../opps.json'
-import { sendError } from 'server/utils'
+import { headers, sendError } from 'server/utils'
 
 export default function addOpp(req, res) {
   // Parse the request body
@@ -25,7 +25,8 @@ export default function addOpp(req, res) {
         if (writeErr) {
           sendError(res, 500)
         } else {
-          res.end('success')
+          res.writeHead(201, headers.json)
+          res.end(updated)
         }
       })
     }

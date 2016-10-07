@@ -23,6 +23,8 @@ class Opportunities extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleClear = this.handleClear.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
   }
 
   handleChange(key, event) {
@@ -32,6 +34,7 @@ class Opportunities extends React.Component {
 
   // Add an opportunity to the list.
   handleAdd() {
+    console.log('fired')
     // Update the current list
     // Submit ajax request
     // Reconcile
@@ -39,13 +42,21 @@ class Opportunities extends React.Component {
     // Buttons only show once all the data is populated...
   }
 
+  handleClear() {
+    this.setState({
+      formData: {
+        title: '',
+        location: '',
+        description: '',
+        contact: '',
+      }
+    })
+  }
+
   handleEdit() {
 
   }
 
-  handleClear() {
-
-  }
 
   handleDelete() {
 
@@ -73,7 +84,12 @@ class Opportunities extends React.Component {
     return (
       <div style={styles.container}>
         <HeaderRow />
-        <NewOppRow formData={formData} handleChange={this.handleChange} />
+        <NewOppRow
+          formData={formData}
+          handleChange={this.handleChange}
+          handleAdd={this.handleAdd}
+          handleClear={this.handleClear}
+        />
         <OppsList opps={opps} />
       </div>
     )

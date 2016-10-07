@@ -34,7 +34,14 @@ class Opportunities extends React.Component {
 
   // Add an opportunity to the list.
   handleAdd() {
-    console.log('fired')
+    const { opps, formData } = this.state
+    // Add the new item to the opps
+    const updatedOpps = opps.concat([formData])
+    // Update state
+    this.setState({
+      opps: updatedOpps
+    })
+
     // Update the current list
     // Submit ajax request
     // Reconcile

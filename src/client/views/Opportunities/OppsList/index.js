@@ -23,7 +23,7 @@ export default function OppsList({
           formData={formData}
           handleChange={handleChange}
           handleClear={handleClear}
-          handleSubmit={handleUpdate}
+          handleSubmit={handleUpdate.bind(null, opp.id)}
         />
       )
     }

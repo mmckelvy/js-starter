@@ -27,6 +27,7 @@ class Opportunities extends React.Component {
     this.handleClear = this.handleClear.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   clearForm() {
@@ -83,8 +84,29 @@ class Opportunities extends React.Component {
     })
   }
 
-  handleUpdate() {
+  /**
+  What to do here?
 
+
+  */
+  handleUpdate(id) {
+    const { opps, formData } = this.state
+    // Grab the appropriate opp
+    const index = opps.findIndex((opp) => {
+      return opp.id === id
+    })
+
+    // Make a copy of the opps for update and potential revert
+    const newOpps = opps.slice()
+    // Update the opps
+    newOpps.splice(index, 1, {...newOpps[index], ...formData})
+
+    // Optimistic update
+    this.clearForm()
+    this.setState({
+      opps: newOpps,
+      activeOppId: null,
+    })
   }
 
 

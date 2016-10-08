@@ -3,7 +3,7 @@ import xhr from 'xhr'
 
 import HeaderRow from './HeaderRow'
 import OppsList from './OppsList'
-import NewOppRow from './NewOppRow'
+import InputRow from 'client/components/InputRow'
 
 import styles from './styles'
 
@@ -19,12 +19,14 @@ class Opportunities extends React.Component {
         location: '',
         description: '',
         contact: '',
-      }
+      },
+      activeOppId: null // Track which row is in edit mode by opp id
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClear = this.handleClear.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
   }
 
   clearForm() {
@@ -68,18 +70,20 @@ class Opportunities extends React.Component {
         opps: res.body.opps
       })
     })
-    // Update the current list
-    // Submit ajax request
-    // Reconcile
-    // What else...need to validate the form...
-    // Buttons only show once all the data is populated...
   }
 
   handleClear() {
     this.clearForm()
   }
 
-  handleEdit() {
+  handleEdit(opp) {
+    this.setState({
+      activeOppId: opp.id,
+      formData: opp
+    })
+  }
+
+  handleUpdate() {
 
   }
 
@@ -105,18 +109,33 @@ class Opportunities extends React.Component {
   }
 
   render() {
-    const { formData, opps } = this.state
+    const { activeOppId, formData, opps } = this.state
+    const defaultFormData = {
+      title: '',
+      location: '',
+      description: '',
+      contact: '',
+    }
 
     return (
       <div style={styles.container}>
         <HeaderRow />
-        <NewOppRow
-          formData={formData}
+        <InputRow
+          formData={!activeOppId ? formData : defaultFormData}
           handleChange={this.handleChange}
-          handleAdd={this.handleAdd}
+          handleSubmit={this.handleAdd}
           handleClear={this.handleClear}
         />
-        <OppsList opps={opps} />
+        <OppsList
+          opps={opps}
+          formData={formData}
+          activeOppId={activeOppId}
+          handleChange={this.handleChange}
+          handleClear={this.handleClear}
+          handleUpdate={this.handleUpdate}
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+        />
       </div>
     )
   }

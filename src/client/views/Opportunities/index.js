@@ -107,6 +107,23 @@ class Opportunities extends React.Component {
       opps: newOpps,
       activeOppId: null,
     })
+
+    // Update server
+    xhr({
+      method: 'PUT',
+      url: `/api/opps/${id}`,
+      json: formData
+    }, (err, res) => {
+      if (err || res.statusCode !== 200) {
+        // Rollback if error
+        return this.setState({opps})
+      }
+
+      // Sync client and server
+      return this.setState({
+        opps: res.body.opps
+      })
+    })
   }
 
 

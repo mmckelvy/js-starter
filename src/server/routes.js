@@ -28,14 +28,14 @@ routes.set('/api/opps', (req, res) => {
     fetchOpps(req, res)
   } else if (req.method === 'POST') {
     addOpp(req, res)
-  } else if (req.method === 'PUT') {
-    updateOpp(req, res)
   }
 })
 
 routes.set('/api/opps/:id', (req, res, params) => {
   if (req.method === 'DELETE') {
     deleteOpp(req, res, params)
+  } else if (req.method === 'PUT') {
+    updateOpp(req, res)
   }
 })
 

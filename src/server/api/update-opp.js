@@ -3,7 +3,7 @@ import path from 'path'
 import parseBody from 'parse-body'
 
 import opps from '../opps.json'
-import { sendError } from 'server/utils'
+import { headers, sendError } from 'server/utils'
 
 export default function updateOpp(req, res) {
   // Parse the request body
@@ -17,7 +17,6 @@ export default function updateOpp(req, res) {
       const index = updatedOpps.findIndex(opp => opp.id === updatedOpp.id)
       // Update the opp
       updatedOpps.splice(index, 1, updatedOpp)
-
       // Convert to JSON
       const updated = JSON.stringify({opps: updatedOpps})
       // Write to file
@@ -25,7 +24,8 @@ export default function updateOpp(req, res) {
         if (writeErr) {
           sendError(res, 500)
         } else {
-          res.end('success')
+          res.writeHead(200, headers.json)
+          res.end(updated)
         }
       })
     }

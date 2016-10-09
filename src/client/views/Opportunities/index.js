@@ -28,6 +28,7 @@ class Opportunities extends React.Component {
     this.handleAdd = this.handleAdd.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
     this.handleUpdate = this.handleUpdate.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   clearForm() {
@@ -84,11 +85,6 @@ class Opportunities extends React.Component {
     })
   }
 
-  /**
-  What to do here?
-
-
-  */
   handleUpdate(id) {
     const { opps, formData } = this.state
     // Grab the appropriate opp
@@ -127,8 +123,41 @@ class Opportunities extends React.Component {
   }
 
 
-  handleDelete() {
+  handleDelete(id) {
+    const { opps } = this.state
 
+    // Grab the appropriate opp
+    const index = opps.findIndex((opp) => {
+      return opp.id === id
+    })
+
+    // Make a copy of the opps for update and potential revert
+    const newOpps = opps.slice()
+    // Update the opps
+    newOpps.splice(index, 1)
+
+    // Optimistic update
+    this.clearForm()
+    this.setState({
+      opps: newOpps,
+      activeOppId: null,
+    })
+
+    // Update server
+    xhr({
+      method: 'DELETE',
+      url: `/api/opps/${id}`,
+    }, (err, res) => {
+      if (err || res.statusCode !== 200) {
+        // Rollback if error
+        return this.setState({opps})
+      }
+
+      // Sync client and server
+      return this.setState({
+        opps: res.body.opps
+      })
+    })
   }
 
   componentDidMount() {

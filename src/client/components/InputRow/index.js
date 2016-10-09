@@ -5,10 +5,10 @@ import { Cell, Input, Submit } from 'client/components'
 import validateForm from './validate-form'
 import styles from './styles'
 
-export default function InputRow({ formData, handleSubmit, handleClear, handleChange }) {
+export default function InputRow({ formData, handleSubmit, handleCancel, handleChange }) {
   // Form is valid, show the submit options
   const submit = validateForm(formData)
-    ? <Cell isAction><Submit handleSubmit={handleSubmit} handleClear={handleClear} /></Cell>
+    ? <Cell isAction><Submit handleSubmit={handleSubmit} handleCancel={handleCancel} /></Cell>
     : <Cell isAction />
 
   const { title, location, description, contact } = formData
@@ -59,6 +59,6 @@ export default function InputRow({ formData, handleSubmit, handleClear, handleCh
 InputRow.propTypes = {
   formData: React.PropTypes.object,
   handleChange: React.PropTypes.func,
-  handleClear: React.PropTypes.func,
+  handleCancel: React.PropTypes.func,
   handleSubmit: React.PropTypes.func,
 }

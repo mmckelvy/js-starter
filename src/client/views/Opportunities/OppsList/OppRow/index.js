@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Cell, Modify, Submit } from 'client/components'
+import { Cell, Modify } from 'client/components'
 
 import styles from './styles'
 
@@ -16,7 +16,7 @@ export default function OppRow({ opp, handleEdit, handleDelete }) {
       <Cell>{contact}</Cell>
 
       {/* Placeholder cell for formatting purposes */}
-      <Cell isAction><Submit /></Cell>
+      <Cell isAction></Cell>
     </div>
   )
 }

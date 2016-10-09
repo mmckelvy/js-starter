@@ -8,7 +8,7 @@ import styles from './styles'
 export default function OppsList({
   activeOppId,
   handleChange,
-  handleClear,
+  handleCancel,
   handleUpdate,
   handleEdit,
   handleDelete,
@@ -22,7 +22,7 @@ export default function OppsList({
           key={index}
           formData={formData}
           handleChange={handleChange}
-          handleClear={handleClear}
+          handleCancel={handleCancel}
           handleSubmit={handleUpdate.bind(null, opp.id)}
         />
       )
@@ -45,7 +45,7 @@ OppsList.propTypes = {
   activeOppId: React.PropTypes.string,
   formData: React.PropTypes.object,
   handleChange: React.PropTypes.func, // Input handler
-  handleClear: React.PropTypes.func, // Input handler
+  handleCancel: React.PropTypes.func, // Input handler
   handleUpdate: React.PropTypes.func, // Input handler
   handleEdit: React.PropTypes.func, // OppRow handler
   handleDelete: React.PropTypes.func, // OppRow handler

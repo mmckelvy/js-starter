@@ -24,21 +24,25 @@ class Opportunities extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleClear = this.handleClear.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
     this.handleUpdate = this.handleUpdate.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
   }
 
-  clearForm() {
+  /*
+  Put the UI back into a read state
+  */
+  teardownForm() {
     this.setState({
       formData: {
         title: '',
         location: '',
         description: '',
         contact: '',
-      }
+      },
+      activeOppId: null
     })
   }
 
@@ -74,8 +78,8 @@ class Opportunities extends React.Component {
     })
   }
 
-  handleClear() {
-    this.clearForm()
+  handleCancel() {
+    this.teardownForm()
   }
 
   handleEdit(opp) {
@@ -137,10 +141,9 @@ class Opportunities extends React.Component {
     newOpps.splice(index, 1)
 
     // Optimistic update
-    this.clearForm()
+    this.teardownForm()
     this.setState({
       opps: newOpps,
-      activeOppId: null,
     })
 
     // Update server
@@ -192,14 +195,14 @@ class Opportunities extends React.Component {
           formData={!activeOppId ? formData : defaultFormData}
           handleChange={this.handleChange}
           handleSubmit={this.handleAdd}
-          handleClear={this.handleClear}
+          handleCancel={this.handleCancel}
         />
         <OppsList
           opps={opps}
           formData={formData}
           activeOppId={activeOppId}
           handleChange={this.handleChange}
-          handleClear={this.handleClear}
+          handleCancel={this.handleCancel}
           handleUpdate={this.handleUpdate}
           handleEdit={this.handleEdit}
           handleDelete={this.handleDelete}

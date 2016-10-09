@@ -6,7 +6,7 @@ import { color, dims } from 'client/global-styles'
 
 import styles from './styles'
 
-export default function Submit({ handleSubmit, handleClear }) {
+export default function Submit({ handleSubmit, handleCancel }) {
   return (
     <div style={styles}>
       <ActionButton
@@ -17,10 +17,10 @@ export default function Submit({ handleSubmit, handleClear }) {
           SUBMIT
         </ActionButton>
       <ActionButton
-        onClick={handleClear}
+        onClick={handleCancel}
         color={color.grey500}>
 
-        CLEAR
+        CANCEL
       </ActionButton>
     </div>
   )
@@ -28,5 +28,5 @@ export default function Submit({ handleSubmit, handleClear }) {
 
 Submit.propTypes = {
   handleSubmit: React.PropTypes.func,
-  handleClear: React.PropTypes.func,
+  handleCancel: React.PropTypes.func,
 }

@@ -14,7 +14,7 @@ export default function InputRow({ formData, handleSubmit, handleCancel, handleC
   const { title, location, description, contact } = formData
 
   return (
-    <div style={styles}>
+    <div style={styles.container}>
       {/* Placeholder cell for layout purposes */}
       <Cell isAction />
 
@@ -38,6 +38,8 @@ export default function InputRow({ formData, handleSubmit, handleCancel, handleC
         <Input
           type="text"
           value={description}
+          style={styles.textarea}
+          isTextArea={true}
           placeholder="Description..."
           onChange={handleChange.bind(null, 'description')}
         />

@@ -55,7 +55,7 @@ class Opportunities extends React.Component {
   handleAdd() {
     const { opps, formData } = this.state
     // Optimistic update
-    this.clearForm()
+    this.teardownForm()
     this.setState({
       opps: opps.slice().concat([formData])
     })
@@ -102,7 +102,7 @@ class Opportunities extends React.Component {
     newOpps.splice(index, 1, {...newOpps[index], ...formData})
 
     // Optimistic update
-    this.clearForm()
+    this.teardownForm()
     this.setState({
       opps: newOpps,
       activeOppId: null,

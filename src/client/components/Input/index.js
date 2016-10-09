@@ -28,6 +28,7 @@ export default class Input extends Component {
       placeholder,
       error,
       disabled,
+      isTextArea,
     } = this.props
 
     const { focused } = this.state
@@ -51,14 +52,31 @@ export default class Input extends Component {
       />
     )
 
+    const textarea = (
+      <textarea
+        style={blendedInputStyle}
+        type={type}
+        name={name}
+        value={value}
+        disabled={disabled}
+        placeholder={placeholder}
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        onFocus={() => this.setState({focused: true})}
+        onBlur={() => this.setState({focused: false})}
+      />
+    )
+
+    const renderedInput = isTextArea ? textarea : input
+
     if (!labelText) {
-      return input
+      return renderedInput
     }
 
     return (
       <div>
         <div style={blendedLabelStyle}>{labelText}</div>
-        {input}
+        {renderedInput}
       </div>
     )
   }
@@ -76,4 +94,5 @@ Input.propTypes = {
   placeholder: React.PropTypes.string,
   error: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
+  isTextArea: React.PropTypes.bool,
 }

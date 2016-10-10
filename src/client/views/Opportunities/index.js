@@ -4,6 +4,7 @@ import xhr from 'xhr'
 import HeaderRow from './HeaderRow'
 import OppsList from './OppsList'
 import InputRow from 'client/components/InputRow'
+import Table from 'client/components/Table'
 
 import styles from './styles'
 
@@ -12,7 +13,7 @@ class Opportunities extends React.Component {
     super()
 
     this.state = {
-      opps: [],
+      opps: [{id: 3, location: 'Miami, Fl', title: 'Hotness', description: 'This is great', contact: 'amber'}],
       // This will hold the temporary state for any new / updated opp
       formData: {
         title: '',
@@ -190,22 +191,9 @@ class Opportunities extends React.Component {
 
     return (
       <div style={styles.container}>
-        <HeaderRow />
-        <InputRow
-          formData={!activeOppId ? formData : defaultFormData}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleAdd}
-          handleCancel={this.handleCancel}
-        />
-        <OppsList
-          opps={opps}
-          formData={formData}
-          activeOppId={activeOppId}
-          handleChange={this.handleChange}
-          handleCancel={this.handleCancel}
-          handleUpdate={this.handleUpdate}
-          handleEdit={this.handleEdit}
-          handleDelete={this.handleDelete}
+        <Table
+          style={styles.table}
+          data={opps}
         />
       </div>
     )

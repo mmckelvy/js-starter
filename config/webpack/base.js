@@ -13,11 +13,11 @@ var plugins = []
 module.exports = {
   module: {
     preLoaders: [
-      {
-          test: /.jsx?$/,
-          loader: 'eslint',
-          include: projectPaths.sourceDir,
-      }
+      // {
+      //     test: /.jsx?$/,
+      //     loader: 'eslint',
+      //     include: projectPaths.sourceDir,
+      // }
     ],
     loaders: [
       {

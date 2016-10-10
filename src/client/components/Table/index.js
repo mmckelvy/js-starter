@@ -10,7 +10,7 @@ export default function Table({ data, columnOrder, style, headerStyle, bodyStyle
           <tr>
             {
               Object.keys(data[0]).map((key, index) => {
-                return <th style={headerStyle}>{key}</th>
+                return <th key={index} style={headerStyle}>{key}</th>
               })
             }
           </tr>
@@ -20,10 +20,10 @@ export default function Table({ data, columnOrder, style, headerStyle, bodyStyle
         {
           data.map((row, rowIndex) => {
             return (
-              <tr>
+              <tr key={rowIndex}>
                 {
-                  Object.keys(row).map((cell, cellIndex) => {
-                    return <td style={bodyStyle}>row[cell]</td>
+                  Object.keys(row).map((key, cellIndex) => {
+                    return <td key={cellIndex} style={bodyStyle}>{row[key]}</td>
                   })
                 }
               </tr>
@@ -40,5 +40,5 @@ Table.propTypes = {
   columnOrder: React.PropTypes.array, // Order of columns
   style: React.PropTypes.object, // Overall table style
   headerStyle: React.PropTypes.object,
-  bodyStyle: React.PropTypesobject.
+  bodyStyle: React.PropTypes.object,
 }

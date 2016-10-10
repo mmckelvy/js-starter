@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Row from './Row'
-import Cell from './Cell'
+import styles from './styles'
 
 export default function Table({ data, columnOrder, style, headerStyle, bodyStyle }) {
   return (

@@ -12,6 +12,8 @@ export default function styles(pathname) {
       justifyContent: 'center',
     },
     opportunities: {
+      display: 'flex',
+      justifyContent: 'center',
       paddingTop: dims.base * 4
     },
   }

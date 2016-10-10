@@ -1,7 +1,6 @@
-import { dims } from 'client/global-styles'
-
 export default {
   container: {
-    paddingTop: dims.base * 3
+    border: '1px solid black',
+    minWidth: '1500px'
   }
 }

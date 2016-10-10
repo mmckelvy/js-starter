@@ -46,6 +46,7 @@ class Opportunities extends React.Component {
     })
   }
 
+  // Add enter detection here...
   handleChange(key, event) {
     const { formData } = this.state
     this.setState({formData: {...formData, ...{[key]: event.target.value}}})
@@ -125,7 +126,6 @@ class Opportunities extends React.Component {
       })
     })
   }
-
 
   handleDelete(id) {
     const { opps } = this.state
